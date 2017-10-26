@@ -110,6 +110,10 @@ app.post('/user', (req, res) => {
   })
 });
 
+app.get('/user/me', (req, res) => {
+  var token = req.header('x-auth');
+  User.findByToken(token);
+});
 
 //setup sever
 app.listen(port, () => {
